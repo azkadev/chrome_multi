@@ -18,3 +18,8 @@ dart pub run packagex build
 ```bash
 sudo dpkg --force-all -i ./build/chrome_multi-linux.deb
 ```
+
+
+```bash
+chrom_multi -name your_name
+```
