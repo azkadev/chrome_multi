@@ -1,7 +1,8 @@
 // ignore_for_file: empty_catches, non_constant_identifier_names
 
 import 'dart:convert';
-import 'dart:io';
+import 'dart:io'; 
+import 'package:mason_logger/mason_logger.dart';
 import 'package:path/path.dart' as p;
 
 import 'package:galaxeus_lib/galaxeus_lib.dart';
@@ -37,13 +38,33 @@ String ask({required String question}) {
 }
 
 void main(List<String> arg) async {
+  Logger logger = Logger(
+    level: Level.verbose,
+  );
   Args args = Args(arg);
   Directory directory_root = Directory(p.join(Directory.current.path, "chrome_multi_db"));
   if (!directory_root.existsSync()) {
     await directory_root.create(recursive: true);
   }
-  String? name = args["-name"];
-  name ??= ask(question: "NAME:");
+  String? name = () {
+    String parse_name = args["-name"] ?? "";
+
+    if (parse_name.isNotEmpty) {
+      return parse_name;
+    }
+    List<String> folders = [
+      "Create New",
+      ...directory_root.listSync().map((e) => p.basename(e.path)).toList(),
+    ];
+    String create_new = logger.chooseOne("Silahkan Pilih Folder", choices: folders);
+
+    if (create_new == folders.first) {
+      return logger.prompt("Name Folder : ");
+    }
+
+    return create_new;
+    // name ??= ask(question: "NAME:");
+  }();
   Directory directory = Directory(p.join(directory_root.path, name));
   if (!directory.existsSync()) {
     try {
@@ -59,20 +80,26 @@ void main(List<String> arg) async {
   await googleChrome(
     directory: directory,
   );
+  File config_chrome = File(p.join(directory.path, "Local State"));
   while (true) {
     try {
       await Future.delayed(Duration(milliseconds: 2000));
-      File config_chrome = File(p.join(directory.path, "Local State"));
       if (await config_chrome.exists()) {
         Map jsonData = json.decode(await config_chrome.readAsString());
+        bool is_update = false;
         if (jsonData["background_mode"] is Map == false) {
+          is_update = true;
           jsonData["background_mode"] = {
             "enabled": false,
           };
-        } else {
+        }
+        if (jsonData["background_mode"]["enabled"] != false) {
+          is_update = true;
           jsonData["background_mode"]["enabled"] = false;
         }
-        await config_chrome.writeAsString(json.encode(jsonData));
+        if (is_update) {
+          await config_chrome.writeAsString(json.encode(jsonData));
+        }
         return print("succes set background to false");
       }
     } catch (e) {}
