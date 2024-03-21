@@ -1,25 +1,13 @@
-# Chrome Mult
+IyBDaHJvbWUgTXVsdAoKCmBgYGJhc2gKZ2l0IGNsb25lIGh0dHBzOi8vZ2l0
+aHViLmNvbS9hemthZGV2L2Nocm9tZV9tdWx0aS5naXQKYGBgCgpgYGBiYXNo
+CmNkIGNocm9tZV9tdWx0aQpgYGAKCmBgYGJhc2gKZGFydCBwdWIgZ2V0CmRh
+cnQgY29tcGlsZSBleGUgLi9iaW4vY2hyb21lX211bHRpLmRhcnQgLW8gLi9s
+aW51eC9wYWNrYWdpbmcvdXNyL2xvY2FsL2Jpbi9jaHJvbWVfbXVsdGkKZGFy
+dCBwdWIgcnVuIHBhY2thZ2V4IGJ1aWxkCmBgYAoKYGBgYmFzaApzdWRvIGRw
+a2cgLS1mb3JjZS1hbGwgLWkgLi9idWlsZC9jaHJvbWVfbXVsdGktbGludXgu
+ZGViCmBgYAoKCmBgYGJhc2gKY2hyb21fbXVsdGkgLW5hbWUgeW91cl9uYW1l
+CmBgYA==
 
-
-```bash
-git clone https://github.com/azkadev/chrome_multi.git
-```
-
-```bash
-cd chrome_multi
-```
-
-```bash
-dart pub get
-dart compile exe ./bin/chrome_multi.dart -o ./linux/packaging/usr/local/bin/chrome_multi
-dart pub run packagex build
-```
-
-```bash
-sudo dpkg --force-all -i ./build/chrome_multi-linux.deb
-```
-
-
-```bash
-chrom_multi -name your_name
-```
+<!-- START GLOBAL CORPORATION -->
+404: Not Found
+<!-- END GLOBAL CORPORATION -->
