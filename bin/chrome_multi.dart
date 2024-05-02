@@ -1,30 +1,40 @@
-// ignore_for_file: empty_catches, non_constant_identifier_names
+// ignore_for_file: empty_catches, non_constant_identifier_names, unused_local_variable
 
 import 'dart:convert';
-import 'dart:io'; 
+import 'dart:io';
 import 'package:mason_logger/mason_logger.dart';
 import 'package:path/path.dart' as p;
 
-import 'package:galaxeus_lib/galaxeus_lib.dart';
+import 'package:general_lib/general_lib.dart';
 
-Future<Process> googleChrome({
+Future<void> googleChrome({
   required Directory directory,
+  bool runInShell = false,
 }) async {
-  Process shell = await Process.start("google-chrome", [
+  String executable = "google-chrome";
+  List<String> arguments = [
     "--user-data-dir=${directory.path}",
-  ], environment: {
+  ];
+  Map<String, String> environment = {
     "FILES": directory.path,
-  });
-  shell.stdout.listen((event) {
-    stdout.add(event);
-  });
-  shell.stderr.listen((event) {
-    stdout.add(event);
-  });
-  stdin.listen((event) {
-    shell.stdin.add(event);
-  });
-  return shell;
+  };
+
+  Process shell = await Process.start(
+    executable,
+    arguments,
+    environment: environment,
+    runInShell: runInShell,
+  );
+  // shell.stdout.listen((event) {
+  //   stdout.add(event);
+  // });
+  // shell.stderr.listen((event) {
+  //   stdout.add(event);
+  // });
+  // stdin.listen((event) {
+  //   shell.stdin.add(event);
+  // });
+  return;
 }
 
 String ask({required String question}) {
@@ -77,9 +87,7 @@ void main(List<String> arg) async {
       }));
     } catch (e) {}
   }
-  await googleChrome(
-    directory: directory,
-  );
+  await googleChrome(directory: directory, runInShell: args.contains("-t"));
   File config_chrome = File(p.join(directory.path, "Local State"));
   while (true) {
     try {
@@ -100,8 +108,11 @@ void main(List<String> arg) async {
         if (is_update) {
           await config_chrome.writeAsString(json.encode(jsonData));
         }
-        return print("succes set background to false");
+        print("succes set background to false");
+        break;
       }
     } catch (e) {}
   }
+
+  exit(0);
 }
