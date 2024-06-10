@@ -25,15 +25,7 @@ Future<void> googleChrome({
     environment: environment,
     runInShell: runInShell,
   );
-  // shell.stdout.listen((event) {
-  //   stdout.add(event);
-  // });
-  // shell.stderr.listen((event) {
-  //   stdout.add(event);
-  // });
-  // stdin.listen((event) {
-  //   shell.stdin.add(event);
-  // });
+  
   return;
 }
 

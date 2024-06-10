@@ -11,11 +11,12 @@ environment:
 
 dev_dependencies:
   lints: ^2.0.0
-  packagex: ^0.0.50
+  
   test: ^1.16.0
 dependencies:
   # galaxeus_lib: ^0.0.89
-  general_lib: ^0.0.36
+  general_lib: ^0.0.41
+  packagex: ^0.0.58
   mason_logger: ^0.2.15
   path: ^1.9.0
 
