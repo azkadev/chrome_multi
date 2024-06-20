@@ -1,24 +1,18 @@
-name: chrome_multi
-description: A sample command-line application.
-version: 1.0.0
-# homepage: https://www.example.com
-
-environment:
-  sdk: '>=3.0.0 <4.0.0'
-
-# dependencies:
-#   path: ^1.8.0
-
-dev_dependencies:
-  lints: ^2.0.0
-  
-  test: ^1.16.0
-dependencies:
-  # galaxeus_lib: ^0.0.89
-  general_lib: ^0.0.41
-  packagex: ^0.0.58
-  mason_logger: ^0.2.15
-  path: ^1.9.0
-
-executables:
-  chrome_multi: chrome_multi
+name: 'chrome_multi'
+description: 'A sample command-line application.'
+version: '0.0.0'
+environment: 
+  sdk: '>=3.3.3 <4.0.0'
+dev_dependencies: 
+  lints: '^2.0.0'
+  test: '^1.16.0'
+dependencies: 
+  general_lib: '^0.0.42'
+  packagex: '^0.0.58'
+  mason_logger: '^0.2.15'
+  path: '^1.9.0'
+executables: 
+  chrome_multi: 'chrome_multi'
+publish_to: 'none'
+dependency_overrides: 
+  pointycastle: '3.8.0'
