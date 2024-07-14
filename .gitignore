@@ -13,3 +13,4 @@ chrome_multi_db/
 docs/canvaskit
 */canvaskit
 /build/
+generate_glx_*
