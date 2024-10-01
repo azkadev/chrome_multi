@@ -4,17 +4,22 @@ version: '0.0.0'
 environment: 
   sdk: '>=3.3.3 <4.0.0'
 dev_dependencies: 
-  lints: '^2.0.0'
-  test: '^1.16.0'
+  lints: '^4.0.0'
+  test: 'any'
 dependencies: 
-  general_lib: '^0.0.44'
-  packagex: '^0.0.59'
-  mason_logger: '^0.2.15'
+  general_lib: '^0.0.46'
+  packagex: '^0.0.60'
+  mason_logger: '^0.3.1'
   path: '^1.9.0'
 executables: 
   chrome_multi: 'chrome_multi'
 publish_to: 'none'
-dependency_overrides: 
-  pointycastle: '3.8.0'
 funding: 
   - 'https://github.com/sponsors/azkadev'
+  - 'https://github.com/sponsors/generalfoss'
+dependency_overrides: 
+  pointycastle: '3.8.0'
+homepage: 'https://youtube.com/@azkadev'
+repository: 'https://github.com/azkadev/general_framework'
+issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
+documentation: 'https://youtube.com/@azkadev'
