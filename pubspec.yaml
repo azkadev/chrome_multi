@@ -1,25 +1,48 @@
 name: 'chrome_multi'
 description: 'A sample command-line application.'
 version: '0.0.0'
-environment: 
+environment:
   sdk: '>=3.3.3 <4.0.0'
-dev_dependencies: 
-  lints: '^4.0.0'
+dev_dependencies:
+  lints: '^5.0.0'
   test: 'any'
-dependencies: 
-  general_lib: '^0.0.46'
-  packagex: '^0.0.60'
+  msix: '^3.16.7'
+dependencies:
+  general_lib: '^0.0.49'
+  packagex: '^0.0.64'
   mason_logger: '^0.3.1'
   path: '^1.9.0'
-executables: 
+executables:
   chrome_multi: 'chrome_multi'
 publish_to: 'none'
-funding: 
+funding:
   - 'https://github.com/sponsors/azkadev'
   - 'https://github.com/sponsors/generalfoss'
-dependency_overrides: 
+dependency_overrides:
   pointycastle: '3.8.0'
+  mime: '^2.0.0'
 homepage: 'https://youtube.com/@azkadev'
 repository: 'https://github.com/azkadev/general_framework'
 issue_tracker: 'https://t.me/DEVELOPER_GLOBAL_PUBLIC'
 documentation: 'https://youtube.com/@azkadev'
+packagex:
+  name: 'chrome_multi'
+  dart_target: 'chrome_multi'
+  flutter_target: 'main'
+  dart_name: 'chrome_multi'
+  flutter_name: 'chrome_multi'
+  is_without_platform_name: true
+  is_app_auto_clean_up_folder: true
+  flutter_commands:
+    obfuscate: true
+    split-debug-info: '0.0.0'
+    build-name: '0.0.0'
+    build-number: 1
+    split-per-abi: true
+    no-tree-shake-icons: true
+  project_id: 'azkadev.packagex'
+  github_username: 'azkadev'
+  github_is_org: false
+msix_config:
+  display_name: 'chrome_multi'
+  install_certificate: false

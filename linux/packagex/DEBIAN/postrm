@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+rm -rf /usr/bin/chrome-multi
+rm -rf /usr/bin/chrome-multi-app

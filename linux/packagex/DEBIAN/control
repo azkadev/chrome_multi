@@ -1,0 +1,10 @@
+Maintainer: "anonymous@noemail.com>"
+Package: chrome-multi
+Version: 0.0.0
+Section: x11
+Priority: optional
+Architecture: all
+Essential: no
+Installed-Size: 0
+Description: "-"
+Homepage: "-"

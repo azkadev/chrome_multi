@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=0.0.0
+Name=Chrome Multi
+GenericName=General Application
+Exec=chrome-multi-app -- %u
+Categories=Music;Media;
+Keywords=Hello;World;Test;Application;
+StartupNotify=true
