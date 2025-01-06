@@ -8,8 +8,8 @@ dev_dependencies:
   test: 'any'
   msix: '^3.16.7'
 dependencies:
-  general_lib: '^0.0.53'
-  packagex: '^0.0.68'
+  general_lib: '^0.0.56'
+  packagex: '^0.0.70'
   mason_logger: '^0.3.1'
   path: '^1.9.0'
 executables:
