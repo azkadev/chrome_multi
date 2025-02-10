@@ -7,43 +7,34 @@ import 'package:path/path.dart' as p;
 
 import 'package:general_lib/general_lib.dart';
 
-Future<void> googleChrome({
-  required Directory directory,
-  bool runInShell = false,
-}) async {
-  String executable = "google-chrome";
-  List<String> arguments = [
-    "--user-data-dir=${directory.path}",
-  ];
-  Map<String, String> environment = {
-    "FILES": directory.path,
-  };
-
-  Process shell = await Process.start(
-    executable,
-    arguments,
-    environment: environment,
-    runInShell: runInShell,
-  );
-  
-  return;
-}
-
-String ask({required String question}) {
-  while (true) {
-    stdout.write(question);
-    String? res = stdin.readLineSync();
-    if (res != null && res.isNotEmpty) {
-      return res;
-    }
-  }
-}
-
 void main(List<String> arg) async {
   Logger logger = Logger(
     level: Level.verbose,
   );
   Args args = Args(arg);
+
+  Future<void> googleChrome({
+    required Directory directory,
+    bool runInShell = false,
+  }) async {
+    String executable = "google-chrome";
+    List<String> arguments = [
+      "--user-data-dir=${directory.path}",
+    ];
+    Map<String, String> environment = {
+      "FILES": directory.path,
+    };
+
+    Process shell = await Process.start(
+      executable,
+      arguments,
+      environment: environment,
+      runInShell: runInShell,
+    );
+
+    return;
+  }
+
   Directory directory_root = Directory(p.join(Directory.current.path, "chrome_multi_db"));
   if (!directory_root.existsSync()) {
     await directory_root.create(recursive: true);
@@ -56,7 +47,10 @@ void main(List<String> arg) async {
     }
     List<String> folders = [
       "Create New",
-      ...directory_root.listSync().map((e) => p.basename(e.path)).toList()..sort((a, b) => a.toLowerCase().compareTo(b.toLowerCase()),),
+      ...directory_root.listSync().map((e) => p.basename(e.path)).toList()
+        ..sort(
+          (a, b) => a.toLowerCase().compareTo(b.toLowerCase()),
+        ),
     ];
     String create_new = logger.chooseOne("Silahkan Pilih Folder", choices: folders);
 

@@ -1,4 +1,6 @@
 #!/usr/bin/env sh
 ln -s /usr/share/chrome-multi/chrome_multi /usr/bin/chrome-multi-app
 chmod +x /usr/bin/chrome-multi-app
+
+ln --force -s /opt/chrome-multi/chrome_multi /usr/bin/chrome-multi-app
 exit 0

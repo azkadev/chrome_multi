@@ -43,6 +43,26 @@ packagex:
   project_id: 'azkadev.packagex'
   github_username: 'azkadev'
   github_is_org: false
+  flutter_build_arguments: []
+  dart_compile_exe_arguments: []
+  uploads:
+    - platform_type: 'github'
+      github_username: 'archivon-apps-stores'
+      github_tag: 'release'
+      github_is_org: false
+      github_repository_name: 'chrome_multi'
+    - platform_type: 'supabase'
+      supabase_folder_name: 'release'
+    - platform_type: 'telegram'
+      telegram_chats:
+        - chat_id: '@slebew'
+          message_thread_id: ''
+  packages:
+    - dart_target: 'chrome_multi'
+      flutter_target: 'main'
+      dart_name: 'chrome_multi'
+      flutter_name: 'chrome_multi'
+      output_name: 'chrome-multi'
 msix_config:
   display_name: 'chrome_multi'
   install_certificate: false
